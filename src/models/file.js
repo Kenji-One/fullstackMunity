@@ -13,14 +13,22 @@ const FileSchema = new mongoose.Schema({
   //   type: Date,
   //   default: Date.now,
   // },
+  user_id: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    required: true,
+  },
   file_folder: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "Folder", // Assuming you have a Folder schema
+    ref: "Folder",
+    required: true,
   },
   community_id: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "Community", // Assuming you have a Community schema
+    ref: "Community",
+    required: true,
   },
 });
 
-module.exports = FileSchema; // Note that we are not compiling this schema with mongoose.model
+// module.exports = FileSchema; // Note that we are not compiling this schema with mongoose.model
+module.exports = FileSchema;

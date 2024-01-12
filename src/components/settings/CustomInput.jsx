@@ -10,6 +10,7 @@ const CustomInput = ({
   inputProps = {}, // Additional input props
   inputBoxSX = {},
   available,
+  warning,
 }) => {
   return (
     <Box
@@ -20,7 +21,11 @@ const CustomInput = ({
         ...inputBoxSX,
       }}
     >
-      <Box className="mb-[8px] flex items-center justify-between gap-4">
+      <Box
+        className={`mb-[8px] flex items-center  ${
+          warning ? "gap-[7px]" : "justify-between gap-4"
+        }`}
+      >
         <Typography
           sx={{
             fontSize: "14px",
@@ -41,6 +46,11 @@ const CustomInput = ({
             }}
           >
             {available} available
+          </Typography>
+        )}
+        {warning && (
+          <Typography sx={{ color: "text.secondary", fontSize: "14px" }}>
+            {warning}
           </Typography>
         )}
       </Box>

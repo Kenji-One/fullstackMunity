@@ -41,7 +41,7 @@ export default function ContentsTop({
         {isNumber ? (
           <Box className="flex flex-wrap items-center gap-6">
             <Box className="w-full max-w-[352px]">
-              <Typography
+              <Box
                 sx={{
                   color: "text.primary",
                   fontSize: "14px",
@@ -50,7 +50,7 @@ export default function ContentsTop({
                 className="!mb-[8px]"
               >
                 {label}
-              </Typography>
+              </Box>
               <TextField
                 value={value}
                 onChange={onChange}

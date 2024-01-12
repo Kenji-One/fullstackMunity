@@ -41,11 +41,15 @@ export default function ChannelForm({
       <Box className="flex gap-6 mt-[4px]">
         <Button
           variant="contained"
+          className="lightBlue"
           sx={{
             padding: "12px 24px",
             fontSize: "16px",
             fontWeight: "400 !important",
             backgroundColor: "#34A4E0",
+            "&.MuiButtonBase-root.lightBlue": {
+              backgroundColor: "#34A4E0",
+            },
             lineHeight: "120%",
             color: "#10111B",
             textTransform: "uppercase",

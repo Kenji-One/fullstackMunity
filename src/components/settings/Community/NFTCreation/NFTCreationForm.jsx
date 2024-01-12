@@ -1,13 +1,18 @@
 import { useState, useEffect } from "react";
 
-import { Typography, Box, TextField, MenuItem, Button } from "@mui/material";
+import {
+  Typography,
+  Box,
+  TextField,
+  MenuItem,
+  Button,
+  InputAdornment,
+} from "@mui/material";
 import Card from "../../../Card";
 import FormHeading from "./FormHeading";
 import ImageSharpIcon from "@mui/icons-material/ImageSharp";
 import ChangeImageBtns from "../../ChangeImageBtns";
 import CustomInput from "../../CustomInput";
-import { getWeiFromEther, uploadFileToIPFS, uploadJSONToIPFS } from "@/utils/pinata/tools";
-import { useWeb3Context } from "@/utils";
 
 const NFTCreationForm = ({
   onSave,
@@ -17,15 +22,15 @@ const NFTCreationForm = ({
   onCloseModal,
   includeImageUpload = true,
 }) => {
-
-  const { address, registerCommunity,buyCommunityNft } = useWeb3Context();
-
   const [formData, setFormData] = useState({
     selectedImage: !includeImageUpload ? selectedImage : null,
     name: "",
-    chain: "",
+    chain: "ethereum",
     description: "",
-    quantity: "",
+    quantity: 1,
+    price: 0,
+    discount: "",
+    uri: "",
   });
   useEffect(() => {
     if (editedNFT) {
@@ -89,7 +94,7 @@ const NFTCreationForm = ({
           />
         </svg>
       ),
-      name: "ethereum",
+      name: "ethereum2",
     },
     {
       icon: (
@@ -114,7 +119,7 @@ const NFTCreationForm = ({
           />
         </svg>
       ),
-      name: "ethereum",
+      name: "ethereum3",
     },
   ];
 
@@ -205,6 +210,9 @@ const NFTCreationForm = ({
       chain: "",
       description: "",
       quantity: 0,
+      price: 0,
+      discount: "",
+      uri: "",
     });
     // clear the chosen image
     const imgElementClear = document.getElementById("chosenImage");
@@ -276,6 +284,7 @@ const NFTCreationForm = ({
             <CustomInput
               label="Name"
               type="text"
+              placeholder="Name"
               inputName={"name"}
               value={formData.name}
               handleChange={handleChange}
@@ -293,6 +302,7 @@ const NFTCreationForm = ({
               chain
             </Typography>
             <TextField
+              defaultValue={"ethereum"}
               fullWidth
               placeholder="Select Chain"
               variant="outlined"
@@ -327,6 +337,26 @@ const NFTCreationForm = ({
           </Box>
           <Box className="mt-6">
             <CustomInput
+              label="Price"
+              type="number"
+              inputName={"price"}
+              placeholder="Price"
+              value={formData.price}
+              handleChange={handleChange}
+            />
+          </Box>
+          <Box className="mt-6">
+            <CustomInput
+              label="QUANTITY/SUPPLY"
+              type="number"
+              inputName={"quantity"}
+              placeholder="Enter quantity here"
+              value={formData.quantity}
+              handleChange={handleChange}
+            />
+          </Box>
+          <Box className="mt-6">
+            <CustomInput
               label="Description"
               placeholder="Write description here..."
               type="textarea"
@@ -337,15 +367,41 @@ const NFTCreationForm = ({
           </Box>
           <Box className="mt-6">
             <CustomInput
-              label="QUANTITY"
+              label="DISCOUNT"
+              warning="(Leave blank if you don’t want this feature)"
               type="number"
-              inputName={"quantity"}
-              placeholder="Enter quantity here"
-              value={formData.quantity}
+              inputName={"discount"}
+              placeholder="Discount"
+              value={formData.discount}
+              handleChange={handleChange}
+              inputProps={{
+                startAdornment: (
+                  <InputAdornment position="start" className="!ml-4">
+                    <Typography
+                      sx={{
+                        lineHeight: "120%",
+                        fontWeight: "400 !important",
+                        fontSize: "16.5px",
+                        color: "text.primary",
+                      }}
+                    >
+                      &#x25;
+                    </Typography>
+                  </InputAdornment>
+                ),
+              }}
+            />
+          </Box>
+          <Box className="mt-6">
+            <CustomInput
+              label="URI"
+              type="uri"
+              inputName={"uri"}
+              placeholder="Enter URI here"
+              value={formData.uri}
               handleChange={handleChange}
             />
           </Box>
-
           {/* Submit Button */}
           <Box
             sx={{}}

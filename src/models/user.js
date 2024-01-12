@@ -1,19 +1,18 @@
 const mongoose = require("mongoose");
-const socialSchema = require("./social").schema; // If socials are separate, remove this line
-const communitySchema = require("./community").schema; // Assuming you have this in a separate file
-const keySchema = require("./key").schema; // Assuming you have this in a separate file
+const SocialSchema = require("./social");
 
-const userSchema = new mongoose.Schema({
-  first_name: { type: String, required: true },
-  last_name: { type: String, required: true },
+const UserSchema = new mongoose.Schema({
+  first_name: String,
+  last_name: String,
+  username: { type: String, required: true },
   email: { type: String, required: true, unique: true },
+  user_avatar: String,
+  user_banner: String,
   is_verified: { type: Boolean, default: false },
-  address: String,
+  address: { type: String, required: true },
   join_date: { type: Date, default: Date.now },
   about: String,
-  socials: [socialSchema], // If socials are separate, change to a reference
-  communities: [communitySchema], // If communities are separate, change to a reference
-  keys: [keySchema], // If keys are separate, change to a reference
+  socials: [SocialSchema],
 });
 
-module.exports = mongoose.model("User", userSchema);
+module.exports = mongoose.model("User", UserSchema);

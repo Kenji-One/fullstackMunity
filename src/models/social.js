@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const socialSchema = new mongoose.Schema({
   name: String,
-  url: String,
+  url: { type: String, required: true },
   icon: String,
   user_id: {
     type: mongoose.Schema.Types.ObjectId,
@@ -12,4 +12,4 @@ const socialSchema = new mongoose.Schema({
 });
 
 // If socials are a separate model
-module.exports = mongoose.model("Social", socialSchema);
+module.exports = socialSchema;

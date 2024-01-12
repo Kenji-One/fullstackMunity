@@ -10,6 +10,7 @@ export default function Channel({
   label,
   isActive = true,
   handleDeleteChannel,
+  hasTag = true,
 }) {
   return (
     <Box
@@ -18,13 +19,16 @@ export default function Channel({
     >
       {label && (
         <Box className="flex items-center mob:gap-4 mob-ssm:gap-6">
-          <Box>
-            <TagSharpIcon sx={{ color: "text.primary" }} />
-          </Box>
+          {hasTag && (
+            <Box>
+              <TagSharpIcon sx={{ color: "text.primary" }} />
+            </Box>
+          )}
           <Typography
             sx={{
               fontSize: "18px",
               lineHeight: "normal",
+              fontWeight: "400 !important",
               color: "text.primary",
             }}
           >

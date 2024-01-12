@@ -6,6 +6,7 @@ import SettingsBox from "../SettingsBoxMain";
 import ToggleInput from "./ToggleInput";
 import Card from "../../Card";
 import ChannelsCard from "./Channels/ChannelsCard";
+import WhiteList from "./Whitelist/WhiteList";
 
 //icons
 // import AddIcon from "@mui/icons-material/Add";
@@ -94,6 +95,15 @@ export default function CommunitySettings() {
             <ToggleInput key={index} label={item.label} isPro={item.isPro} />
           ))}
         </Card>
+
+        <WhiteList
+          addSX={{
+            display: {
+              mob: "none",
+              tab: "block",
+            },
+          }}
+        />
       </Box>
       <Box className="flex flex-col mob:gap-4 tab:gap-6 desk:gap-8">
         <ChangeImage
@@ -147,6 +157,14 @@ export default function CommunitySettings() {
             <ToggleInput key={index} label={item.label} isPro={item.isPro} />
           ))}
         </Card>
+        <WhiteList
+          addSX={{
+            display: {
+              mob: "block",
+              tab: "none",
+            },
+          }}
+        />
       </Box>
     </SettingsBox>
   );

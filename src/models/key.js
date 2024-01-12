@@ -6,7 +6,7 @@ const keySchema = new mongoose.Schema({
   chain: String,
   description: String,
   quantity: { type: Number, default: 1 },
-  price: Number,
+  price: { type: Number, default: 0 },
   community_id: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Community",

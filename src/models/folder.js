@@ -20,4 +20,4 @@ const FolderSchema = new mongoose.Schema({
   files: [FileSchema], // Embedding the File schema directly into the Folder schema
 });
 
-module.exports = mongoose.model("Folder", FolderSchema);
+module.exports = FolderSchema;

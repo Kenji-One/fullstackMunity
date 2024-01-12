@@ -106,12 +106,17 @@ export default function ContentNav() {
                         fontWeight: "400 !important",
                         fontSize: "14px",
                         color: "text.primary",
+                        lineHeight: "normal",
                       }}
                     >
                       MINTING PRICE
                     </Typography>
                     <Typography
-                      sx={{ color: "text.secondary", fontSize: "14px" }}
+                      sx={{
+                        color: "text.secondary",
+                        fontSize: "14px",
+                        lineHeight: "normal",
+                      }}
                     >
                       FOR JOINING COMMUNITY
                     </Typography>
@@ -159,12 +164,17 @@ export default function ContentNav() {
                         fontWeight: "400 !important",
                         color: "text.primary",
                         fontSize: "14px",
+                        lineHeight: "normal",
                       }}
                     >
                       MINTING PRICE
                     </Typography>
                     <Typography
-                      sx={{ color: "text.secondary", fontSize: "14px" }}
+                      sx={{
+                        color: "text.secondary",
+                        fontSize: "14px",
+                        lineHeight: "normal",
+                      }}
                     >
                       FOR JOINING COMMUNITY
                     </Typography>

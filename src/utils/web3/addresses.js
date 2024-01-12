@@ -1,6 +1,4 @@
-import { munityABI } from "../abis/erc1155Munity";
 import { ChainIds } from "./chains";
-
 
 export const addresses = {
   [ChainIds.Ethereum]: {
@@ -24,13 +22,3 @@ export const addresses = {
     },
   },
 };
-
-
-export const MUNITY_CONFIG ={
-  [ChainIds.Ethereum]: {
-  rpcUrl:"https://eth-sepolia.g.alchemy.com/v2/2aUvl36AwoIdzsS64jsHiO9QE5t8Ftyh",
-  address:"0x16a26E0cB9b8423F806672bf584F8de8bbC9eB96",
-  abi:munityABI
-}
-
-}

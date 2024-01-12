@@ -1,4 +1,5 @@
 import * as React from "react";
+
 import "../app/globals.css";
 import "../styles/globals.scss";
 import { Provider } from "react-redux";
