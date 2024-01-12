@@ -1,5 +1,5 @@
 import { validationResult, check } from "express-validator";
-import connectDB from "../../utils/database";
+import connectDB from "@/utils/database/database";
 import User from "../../models/user";
 
 // Handler for GET, POST, PUT, DELETE requests

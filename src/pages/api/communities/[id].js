@@ -2,7 +2,7 @@ import {
   getCommunityById,
   updateCommunity,
   deleteCommunity,
-} from "../../../controllers/communityController";
+} from "@/controllers/community";
 const connectDB = require("../../../utils/database/database");
 let isConnected;
 if (!isConnected) {
