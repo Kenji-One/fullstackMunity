@@ -1,0 +1,152 @@
+
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  & p.MuiTypography-root {
+    font-weight: 300;
+  }
+  min-height: 100vh;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+@font-face {
+  font-family: "A2Z-Styra-A";
+  src: local("A2Z-Styra-A"),
+    url("../../public/fonts/A2Z-Styra-A-Black.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "A2Z-Styra-A";
+  src: local("A2Z-Styra-A"),
+    url("../../public/fonts/A2Z-Styra-A-Regular.otf") format("truetype");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "A2Z-Styra-A";
+  src: local("A2Z-Styra-A"),
+    url("../../public/fonts/A2Z-Styra-A-Light.otf") format("truetype");
+  font-weight: 300;
+}
+
+a.darkSvg svg path {
+  fill: #fff;
+}
+.footer {
+  .MuiOutlinedInput-notchedOutline {
+    border-color: #fff !important;
+    border-width: 0;
+    &:hover {
+      border-width: 1px;
+    }
+  }
+  input:hover + .MuiOutlinedInput-notchedOutline {
+    border-width: 1px;
+  }
+  input:active + .MuiOutlinedInput-notchedOutline {
+    border-width: 2px;
+  }
+}
+
+.MuiMenu-paper.MuiPopover-paper.MuiMenu-paper {
+  border-radius: 0;
+  margin-top: 8px;
+}
+
+.bg-white {
+  background: white !important;
+}
+
+.bg-trans {
+  background: transparent !important;
+}
+
+.w100 {
+  width: 100%;
+}
+
+.mt-5 {
+  margin-top: 5px;
+}
+
+.ml-5 {
+  margin-left: 5px;
+}
+
+.mr-5 {
+  margin-right: 5px;
+}
+
+.mb-5 {
+  margin-bottom: 5px;
+}
+
+.mx-5 {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.my-5 {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.pos-rel {
+  position: relative;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.fc {
+  flex-direction: column;
+}
+
+.fr {
+  flex-direction: row;
+}
+
+.as-st {
+  align-self: flex-start;
+}
+
+.ai-ce {
+  align-items: center;
+}
+
+.ai-st {
+  align-items: flex-start;
+}
+
+.ai-en {
+  align-items: flex-end;
+}
+
+.fj-sb {
+  justify-content: space-between;
+}
+
+.fj-sa {
+  justify-content: space-around;
+}
+
+.fj-en {
+  justify-content: flex-end;
+}
+
+.fj-ce {
+  justify-content: center;
+}
