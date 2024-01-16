@@ -1,7 +1,7 @@
 // controllers/communityController.js
 const Community = require("../models/community");
 
-export async function getAllCommunities() {
+export async function getAllCommunities(req, res) {
   try {
     const communities = await Community.find({});
     res.status(200).json({ success: true, data: communities });
@@ -10,7 +10,7 @@ export async function getAllCommunities() {
   }
 }
 
-export async function getCommunityById(req) {
+export async function getCommunityById(req, res) {
   try {
     const community = await Community.findById(req.params.id);
     if (!community) {
@@ -24,7 +24,7 @@ export async function getCommunityById(req) {
   }
 }
 
-export async function createCommunity(req) {
+export async function createCommunity(req, res) {
   try {
     const newCommunity = new Community(req.body);
     await newCommunity.save();
@@ -35,7 +35,7 @@ export async function createCommunity(req) {
   }
 }
 
-export async function updateCommunity(req) {
+export async function updateCommunity(req, res) {
   try {
     const community = await Community.findByIdAndUpdate(
       req.params.id,
@@ -56,7 +56,7 @@ export async function updateCommunity(req) {
   }
 }
 
-export async function deleteCommunity(req) {
+export async function deleteCommunity(req, res) {
   try {
     const deletedCommunity = await Community.findByIdAndDelete(req.params.id);
     if (!deletedCommunity) {
