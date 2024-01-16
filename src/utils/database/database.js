@@ -1,30 +1,24 @@
+require("dotenv").config();
 const mongoose = require("mongoose");
-// const buildConnection = (user, pass, server) => {
-//   return `mongodb://${user}:${pass}@${server}:27017/api?authSource=admin`;
-// };
-
-// const defaultConnection = () => {
-//   const user = "munity0database";
-//   const pass = "8qED(Fw@HKWhURxw";
-//   const server =
-//     "mongodb://testadmin:test1234@docdb-test-cluster.cluster-cbmoew6sm7e7.us-east-1.docdb.amazonaws.com:27017/?tls=true&tlsCAFile=global-bundle.pem&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false";
-
-//   return buildConnection(user, pass, server);
-// };
 
 const connectDB = async () => {
   try {
-    console.log("Connecting to Mongo!");
+    console.log("Connecting to Mongo...");
+
+    // Construct the connection string from environment variables
+    const connectionString =
+      `mongodb://${process.env.AWS_DOCDB_USERNAME}:${process.env.AWS_DOCDB_PASSWORD}` +
+      `@docdb-test-cluster.cluster-cbmoew6sm7e7.us-east-1.docdb.amazonaws.com:27017/` +
+      `?tls=true&tlsCAFile=./global-bundle.pem` + // Adjust the path to global-bundle.pem as necessary
+      `&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false`;
 
     mongoose.set("strictQuery", false);
-    const conn = await mongoose.connect(
-      "mongodb://testadmin:test1234@docdb-test-cluster.cluster-cbmoew6sm7e7.us-east-1.docdb.amazonaws.com:27017/?tls=true&tlsCAFile=global-bundle.pem&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false"
-    );
+    const conn = await mongoose.connect(connectionString);
 
     console.log(`MongoDB Connected: ${conn.connection.host}`);
   } catch (err) {
-    console.log("Cannot connect to the database!", err);
-    // process.exit();
+    console.error("Cannot connect to the database!", err);
+    // process.exit(1); // Exit process with failure
   }
 };
 
